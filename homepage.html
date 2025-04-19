@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="SOS Healthy Living - Your comprehensive resource for balanced nutrition, effective workouts, and holistic wellness approaches">
+    <meta property="og:title" content="SOS Healthy Living | Your Wellness Journey Starts Here">
+    <meta property="og:description"
+        content="Discover balanced nutrition, effective workouts, and expert health tips for a healthier you.">
+    <meta property="og:image" content="path-to-your-social-share-image.jpg">
+    <link rel="canonical" href="https://soshealthyliving.com/homepage.html">
+
+
+    <title>SOS Healthy Living | Your Wellness Journey Starts Here</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #88de8b;
+            --secondary-color: #e1f3cc;
+            --accent-color: #FF9800;
+            --light-color: #F1F8E9;
+            --dark-color: #818181;
+            --gray-color: #F5F5F5;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: var(--light-color);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-toggler {
+            border: none;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .active {
+            color: var(--primary-color) !important;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/a.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-color);
+            border-color: var(--dark-color);
+        }
+
+        /* Register button styles */
+        .btn-outline-primary {
+            border-color: #88de8b;
+            color: #88de8b;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #88de8b;
+            border-color: #88de8b;
+            color: white;
+        }
+
+        /* Add spacing between nav items */
+        .navbar-nav .btn,
+        .navbar-nav .nav-link {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background-color: #9ece95;
+            padding: 60px 0;
+            color: white;
+        }
+
+        .newsletter-title {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .form-control {
+            height: 50px;
+            border-radius: 4px;
+        }
+
+        /* Articles */
+        .section-title {
+            font-size: 2.0rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .article-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-image {
+            width: 100%;
+            height: 250px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+
+        }
+
+        .article-content {
+            padding: 20px;
+            flex: 1;
+        }
+
+        .article-tag {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .article-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .article-description {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .article-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: auto;
+        }
+
+        .article-link i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .article-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            background-size: cover;
+        }
+
+        .author-name {
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        .author-title {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-title {
+            font-weight: 700;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #CCC;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #CCC;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--dark-color);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 991px) {
+            .hero {
+                height: 500px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero {
+                height: 400px;
+                text-align: center;
+            }
+
+            .hero-content {
+                margin: 0 auto;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .feature-card {
+                padding: 20px;
+            }
+
+            .feature-icon {
+                font-size: 2rem;
+            }
+
+            .feature-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Search */
+        .search-container {
+            position: relative;
+            width: 40px;
+            transition: width 0.3s ease;
+        }
+
+        .search-container.expanded {
+            width: 200px;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding-right: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .search-container .form-control {
+            width: 40px;
+            height: 35px;
+            padding-left: 6px 30px;
+            cursor: pointer;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23666"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>') no-repeat 8px center/14px;
+        }
+
+        .search-container .form-control:focus {
+            width: 200px;
+            padding-left: 35px;
+            cursor: text;
+            height: 35px;
+        }
+
+        /* Cookie Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .cookie-banner.active {
+            transform: translateY(0);
+        }
+
+        .cookie-text {
+            margin-right: 20px;
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #7CB342;
+            border-color: #7CB342;
+        }
+
+        /* Responsive adjustments */
+        @media (min-width: 768px) {
+            .cookie-banner {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .cookie-text {
+                margin-bottom: 0;
+                margin-right: 20px;
+            }
+
+            .cookie-buttons {
+                display: flex;
+                gap: 10px;
+            }
+        }
+
+        /* Privacy Policy Modal Styles */
+        .modal-content {
+            border-radius: 10px;
+            border: none;
+        }
+
+        .modal-header {
+            border-bottom: 2px solid var(--primary-color);
+            background-color: var(--light-color);
+        }
+
+        .modal-title {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-body h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .modal-body ul {
+            padding-left: 1.5rem;
+        }
+
+        .modal-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-footer {
+            border-top: none;
+            padding: 1rem 2rem;
+        }
+
+        .modal-dialog-scrollable .modal-content {
+            max-height: 85vh;
+        }
+
+        @keyframes highlight {
+            0% {
+                background-color: #ffd700;
+            }
+
+            100% {
+                background-color: transparent;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="homepage.html">
+                    <i class="fas fa-heartbeat me-2"></i>SOS Healthy Living
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <form class="d-flex me-3 search-container" role="search" id="searchForm" onsubmit="handleSearch(event)">
+                    <input class="form-control form-control-sm" type="search" placeholder="Search" aria-label="Search"
+                        id="searchInput">
+                </form>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="homepage.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="nutrition.html" id="nutrition-link">Nutrition</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="mental.html" id="mental-wellness-link">Mental Wellness</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="lifestyle.html" id="healthy-lifestyle-link">Health Lifestyle</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="article.html" id="article-link">Article</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="fitness.html" id="fitness-link">Fitness Tips</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html" id="about-link">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html" id="contact-link">Contact Us</a>
+                        </li>
+
+                        <button id="login-btn" class="btn btn-primary ms-3">
+                            <i class="fas fa-user-circle"></i>
+                        </button>
+                        <button id="profile-btn" class="btn btn-primary ms-3">
+                            <i class="fas fa-user-circle"></i>
+                        </button>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Your Journey to Wellness Starts Here</h1>
+                <p class="hero-subtitle">Discover balanced nutrition, effective workouts, and expert health tips for a
+                    healthier you.</p>
+                <div class="d-flex flex-wrap gap-2">
+                    <button class="btn btn-primary btn-lg" id="start-journey-btn">
+                        Start Your Journey
+                    </button>
+                    <button class="btn btn-outline-light btn-lg" id="learn-more-btn">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Discover Our Wellness Approach</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Balanced Nutrition</h3>
+                        <p>Learn about macro and micronutrients, meal planning, and optimal eating patterns for your
+                            health goals.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="feature-title">Mental Wellness</h3>
+                        <p>Find strategies for stress management, better sleep, and maintaining a positive mindset.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3 class="feature-title">Healthy Recipes</h3>
+                        <p>Explore delicious and nutritious recipes that make healthy eating enjoyable and sustainable.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <h3 class="feature-title">Good Quality Sleep</h3>
+                        <p>Quality sleep supports physical health, boosts mental clarity, improves mood, and strengthens
+                            the immune system.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h3 class="newsletter-title">Get Weekly Wellness Tips</h3>
+                    <p class="mb-4">Join our community and receive expert advice, recipes, and workout ideas directly to
+                        your inbox.</p>
+                    <form class="row g-3 justify-content-center" id="newsletter-form">
+                        <div class="col-md-8">
+                            <input type="email" class="form-control form-control-lg" id="newsletter-email"
+                                placeholder="Your email address">
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-primary btn-lg w-100">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Articles -->
+    <section class="recent-articles">
+        <div class="container">
+            <h2 class="section-title">Latest Wellness Articles</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="article-card">
+                        <div class="article-image" style="background-image: url('img/c.jpg')"></div>
+                        <div class="article-content">
+                            <span class="article-tag">Mental Health</span>
+                            <h3 class="article-title">Mental Health Literacy and School Behavioral Health: Introduction
+                                to the Special Issue</h3>
+                            <p class="article-description">Learn mental health literacy and school behavioral healthy in
+                                special issues.</p>
+                            <a href="https://www.tandfonline.com/doi/pdf/10.1080/19325037.2024.2422073"
+                                class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="article-card">
+                        <div class="article-image" style="background-image: url('img/fitness.jpg')"></div>
+                        <div class="article-content">
+                            <span class="article-tag">Fitness</span>
+                            <h3 class="article-title">Is Physical Fitness More Important in Defining Health Benefits?
+                            </h3>
+                            <p class="article-description">Regularly practicing gratitude fosters emotional resilience,
+                                reduces stress, and enhances overall well-being by shifting focus to positive
+                                experiences and nurturing a deeper sense of contentment.</p>
+                            <a href="https://www.paulogentil.com/pdf/Is%20physical%20activity%20or%20physical%20fitness%20more%20important%20in%20defining%20health%20benefits.pdf"
+                                class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="article-card">
+                        <div class="article-image" style="background-image: url('img/power.webp')"></div>
+                        <div class="article-content">
+                            <span class="article-tag">Wellness</span>
+                            <h3 class="article-title">The Power of Gratitude</h3>
+                            <p class="article-description">Discover the latest research on the power of gratitude in
+                                mental healthy.</p>
+                            <a href="https://journals.sagepub.com/doi/pdf/10.1177/2165079917697217"
+                                class="article-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Success Stories</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Following the nutrition guides and workout routines completely
+                            transformed my relationship with food and exercise. I've never felt better!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar" style="background-image: url('/api/placeholder/100/100')"></div>
+                            <div>
+                                <h4 class="author-name">Sarah Johnson</h4>
+                                <p class="author-title">Lost 30kg in 6 months</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The recipes are delicious and easy to make. My whole family enjoys
+                            them, and we've all seen improvements in our energy levels."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar" style="background-image: url('/api/placeholder/100/100')"></div>
+                            <div>
+                                <h4 class="author-name">Michael Thompson</h4>
+                                <p class="author-title">Improved cholesterol levels</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The meditation and stress management techniques helped me reduce
+                            anxiety and sleep better. This is truly a comprehensive wellness approach."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar" style="background-image: url('/api/placeholder/100/100')"></div>
+                            <div>
+                                <h4 class="author-name">Emily Rodriguez</h4>
+                                <p class="author-title">Reduced stress and anxiety</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h3 class="footer-title">SOS Healthy Living</h3>
+                    <p>Your comprehensive resource for balanced nutrition, effective workouts, and holistic wellness
+                        approaches.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=61575000126651"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/watch?v=CSjRBBqfhko"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="homepage.html">Home</a></li>
+                        <li><a href="nutrition.html">Nutrition</a></li>
+                        <li><a href="mental.html">Mental Wellness</a></li>
+                        <li><a href="article.html">Article</a></li>
+                        <li><a href="lifestyle.html">Health Lifestyle</a></li>
+                        <li><a href="fitness.html">Fitness Tips</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="about.html">About Us</a></li>
+
+                    </ul>
+
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h3 class="footer-title">Resources</h3>
+                    <ul class="footer-links">
+                        <li><a
+                                href="https://dietyourway.com.my/?srsltid=AfmBOoq43gFuzCkrtVpeV-Q5NB2ukvIbsDMite9t3FqTDudqGB0kLE1s">Meal
+                                Plans</a></li>
+                        <li><a href="https://www.health-unlimited.com/article_a/270.htm">Healthy Living Guide</a></li>
+                        <li><a href="https://anyflip.com/wtvjw/arzq/basic">Healthy and Wellness eBooks</a></li>
+                        <li><a href="https://www.calculator.net/fitness-and-health-calculator.html">Fitness and Health
+                                Calculators</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope me-2"></i> infosos@healthyliving.com</li>
+                        <li><i class="fas fa-phone me-2"></i> (05) 468 8888</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Jalan Universiti, 31900 Kampar, Perak</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 SOS Healthy Living. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookie-banner">
+        <div class="cookie-text">
+            <p class="mb-0">We use cookies to enhance your experience on our website. By continuing to browse, you agree
+                to our <a href="#" data-bs-toggle="modal" data-bs-target="#privacyPolicyModal"
+                    class="text-decoration-underline">Privacy Policy</a>.</p>
+        </div>
+        <div class="cookie-buttons">
+            <button class="btn btn-secondary me-2" id="decline-cookies">Decline</button>
+            <button class="btn btn-primary" id="accept-cookies">Accept</button>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div class="modal fade" id="privacyPolicyModal" tabindex="-1" aria-labelledby="privacyPolicyModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="privacyPolicyModalLabel">Privacy Policy</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <section class="mb-4">
+                        <h2 class="h4">Information We Collect</h2>
+                        <p>We collect information that you provide directly to us, including:</p>
+                        <ul>
+                            <li>Name and contact information</li>
+                            <li>Account credentials</li>
+                            <li>Health and fitness preferences</li>
+                            <li>Usage data and analytics</li>
+                        </ul>
+                    </section>
+
+                    <section class="mb-4">
+                        <h2 class="h4">How We Use Your Information</h2>
+                        <ul>
+                            <li>Provide and improve our services</li>
+                            <li>Personalize your experience</li>
+                            <li>Send important updates and notifications</li>
+                            <li>Analyze usage patterns and optimize performance</li>
+                        </ul>
+                    </section>
+
+                    <section class="mb-4">
+                        <h2 class="h4">Cookies and Tracking</h2>
+                        <p>We use cookies and similar tracking technologies to:</p>
+                        <ul>
+                            <li>Remember your preferences</li>
+                            <li>Analyze site traffic and usage</li>
+                            <li>Personalize content and advertisements</li>
+                            <li>Improve site functionality</li>
+                        </ul>
+                    </section>
+
+                    <section class="mb-4">
+                        <h2 class="h4">Your Rights</h2>
+                        <p>You have the right to:</p>
+                        <ul>
+                            <li>Access your personal data</li>
+                            <li>Request corrections or deletions</li>
+                            <li>Withdraw consent</li>
+                            <li>Object to data processing</li>
+                        </ul>
+                    </section>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--Search Bar-->
+    <script src="js/searchBar.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+
+        $(document).ready(function () {
+
+            $('#learn-more-btn').click(function (e) {
+                e.preventDefault();
+                $('html, body').animate({
+                    scrollTop: $('#features').offset().top - 70
+                }, 800);
+            });
+
+          
+            $('#start-journey-btn').click(function () {
+                
+                const malaysiaTime = new Date().toLocaleString("en-US", {
+                    timeZone: "Asia/Kuala_Lumpur",
+                    hour12: true 
+                });
+
+                localStorage.setItem('journeyStarted', 'true');
+                localStorage.setItem('journeyStartDate', malaysiaTime);
+
+              
+                const formattedTime = new Date(malaysiaTime).toLocaleString('en-MY', {
+                    timeZone: 'Asia/Kuala_Lumpur',
+                    dateStyle: 'full',
+                    timeStyle: 'medium'
+                });
+
+                alert(`Your wellness journey has begun at ${formattedTime} ! We\'ll track your progress.`);
+            });
+
+            // Newsletter form submission
+            $('#newsletter-form').submit(function (e) {
+                e.preventDefault();
+                const email = $('#newsletter-email').val();
+                if (email) {
+            
+                    sessionStorage.setItem('subscribedEmail', email);
+                    alert('Thanks for subscribing! Check your email for confirmation.');
+                    $('#newsletter-email').val('');
+                }
+            });
+
+        });    
+    </script>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" id="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <p>Don't have an account? <a href="register.html" class="text-primary">Register here</a></p>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btn-close" class="btn btn-secondary"
+                        data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- User Profile Modal -->
+    <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileModalLabel">Your Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="profile-card">
+                        <div class="text-center mb-4">
+                            <img src="img/JohnDoe.png" class="rounded-circle mb-3" alt="Profile Picture" width="150">
+                            <h4>John Doe</h4>
+                            <span class="badge bg-success">Premium Member</span>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-4 text-center">
+                                <div class="small text-muted">Workouts</div>
+                                <div class="h4">42</div>
+                            </div>
+                            <div class="col-4 text-center">
+                                <div class="small text-muted">Streak</div>
+                                <div class="h4">15</div>
+                            </div>
+                            <div class="col-4 text-center">
+                                <div class="small text-muted">Points</div>
+                                <div class="h4">1,250</div>
+                            </div>
+                        </div>
+
+                        <h5>Your Goals</h5>
+                        <ul class="list-group mb-4">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Lose weight
+                                <span class="badge bg-primary rounded-pill">In Progress</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Run 5K
+                                <span class="badge bg-success rounded-pill">Achieved</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Improve flexibility
+                                <span class="badge bg-primary rounded-pill">In Progress</span>
+                            </li>
+                        </ul>
+
+                        <div class="d-grid gap-2">
+                            <button class="nav-item">
+                                <a href="#" id="logout" class="nav-link">Logout</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Handle dropdown menu actions
+        document.addEventListener('click', function (e) {
+            if (e.target.id === 'logout') {
+                e.preventDefault();
+                UserState.logout();
+                alert('You have been logged out successfully.');
+                location.reload(); // Reload the page to reset the UI
+            }
+
+        });
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="js/userState.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Back to top button
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 300) {
+                $('#back-to-top').addClass('active');
+            } else {
+                $('#back-to-top').removeClass('active');
+            }
+        });
+
+        $('#back-to-top').click(function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, 500);
+        });
+    </script>
+    <script>
+        // Handle close button actions
+        document.addEventListener('click', function (e) {
+            if (e.target.id === 'btn-close') {
+                e.preventDefault();
+                location.reload(); // Reload the page to reset the UI
+            }
+
+        });
+
+    </script>
+    <script>
+        // Login modal
+        $('#login-btn').click(function () {
+            $('#loginModal').modal('show');
+        });
+
+        // Login form submission
+        $('#login-form').submit(function (e) {
+            e.preventDefault();
+
+            // Show success message and close modal
+            alert('Login successful!');
+            $('#loginModal').modal('hide');
+
+            // Simulate logged in state
+            $('#login-btn').text('My Profile');
+            $('#login-btn').attr('id', 'profile-btn');
+        });
+
+        // Profile button (after login)
+        $(document).on('click', '#profile-btn', function () {
+            $('#profileModal').modal('show');
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginBtn = document.getElementById('login-btn');
+            const profileBtn = document.getElementById('profile-btn');
+
+            // Check login state on page load
+            if (!UserState.isLoggedIn()) {
+                // If not logged in, ensure the button opens the login modal
+                loginBtn.style.display = 'block'; // Show login button
+                if (profileBtn) profileBtn.style.display = 'none'; // Hide profile button
+                loginBtn.addEventListener('click', function () {
+                    const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+                    loginModal.show();
+                });
+            } else {
+                // If logged in, update the button to show profile modal
+                const userData = UserState.getUserData();
+                UserState.updateUIForLoggedInUser(userData);
+
+                loginBtn.style.display = 'none'; // Hide login button
+                if (profileBtn) profileBtn.style.display = 'block'; // Show profile button
+
+
+                // Add event listener for profile modal
+                const profileBtn = document.getElementById('profile-btn');
+                profileBtn.addEventListener('click', function () {
+                    const profileModal = new bootstrap.Modal(document.getElementById('profileModal'));
+                    profileModal.show();
+                });
+            }
+        });
+    </script>
+
+    <script src="js/cookieUtils.js"></script>
+    <script>
+        // Cookie Banner Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const cookieBanner = document.getElementById('cookie-banner');
+            const acceptCookies = document.getElementById('accept-cookies');
+            const declineCookies = document.getElementById('decline-cookies');
+
+
+            const cookieConsent = CookieManager.getCookie('cookieConsent');
+
+            if (!cookieConsent) {
+                setTimeout(() => {
+                    cookieBanner.classList.add('active');
+                }, 1000);
+            }
+
+            acceptCookies.addEventListener('click', () => {
+                cookieBanner.classList.add('animate__animated', 'animate__fadeOutDown');
+
+
+                CookieManager.setCookie('cookieConsent', 'accepted');
+
+
+                enableCookieFeatures();
+
+                setTimeout(() => {
+                    cookieBanner.classList.remove('active');
+                }, 500);
+            });
+
+            declineCookies.addEventListener('click', () => {
+                cookieBanner.classList.add('animate__animated', 'animate__fadeOutDown');
+
+
+                CookieManager.setCookie('cookieConsent', 'declined');
+
+
+                disableCookieFeatures();
+
+                setTimeout(() => {
+                    cookieBanner.classList.remove('active');
+                }, 500);
+            });
+
+            function enableCookieFeatures() {
+
+                if (typeof gtag === 'function') {
+                    gtag('consent', 'update', {
+                        'analytics_storage': 'granted'
+                    });
+                }
+
+                console.log('Cookies accepted - features enabled');
+
+                const savedPreferences = localStorage.getItem('userPreferences');
+                if (savedPreferences) {
+                    CookieManager.setCookie('userPreferences', savedPreferences);
+                }
+            }
+
+            function disableCookieFeatures() {
+
+                if (typeof gtag === 'function') {
+                    gtag('consent', 'update', {
+                        'analytics_storage': 'denied'
+                    });
+                }
+
+
+                const cookies = document.cookie.split(';');
+                for (let cookie of cookies) {
+                    const cookieName = cookie.split('=')[0].trim();
+                    if (cookieName !== 'cookieConsent') {
+                        CookieManager.deleteCookie(cookieName);
+                    }
+                }
+
+                const essentialItems = ['cookieChoice'];
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    if (!essentialItems.includes(key)) {
+                        localStorage.removeItem(key);
+                    }
+                }
+
+                console.log('Cookies declined - features disabled');
+            }
+        });
+
+    </script>
+</body>
+
+</html>

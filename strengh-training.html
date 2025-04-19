@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strength Training | SOS Healthy Living</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <body>
+        <!-- Header/Navigation -->
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
+                    <a class="navbar-brand" href="homepage.html">
+                        <i class="fas fa-heartbeat me-2"></i>SOS Healthy Living
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="homepage.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="nutrition.html" id="nutrition-link">Nutrition</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="mental.html" id="mental-wellness-link">Mental Wellness</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="lifestyle.html" id="healthy-lifestyle-link">Health
+                                    Lifestyle</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="article.html" id="article-link">Article</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="fitness.html" id="fitness-link">Fitness Tips</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html" id="about-link">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html" id="contact-link">Contact Us</a>
+                            </li>
+
+                            <button id="login-btn" class="btn btn-primary ms-3">
+                                <i class="fas fa-user-circle"></i>
+                            </button>
+                            <button id="profile-btn" class="btn btn-primary ms-3">
+                                <i class="fas fa-user-circle"></i>
+                            </button>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Workout Hero Section -->
+        <section class="hero-image">
+            <img src="img/strength-training.png" alt="Strength Training" 
+            class="img-fluid w-100 hero-img animate__animated animate__fadeIn">
+            <div class="hero-overlay">
+                <div class="container text-center">
+                    <h1 class="display-4 fw-bold">Strength Training Program</h1>
+                    <p class="lead">Build muscle, increase strength, and improve your overall fitness</p>
+                </div>
+            </div>
+        </section>
+
+        <main class="py-5">
+            <div class="container">
+                <!-- Workout Overview -->
+                <section class="mb-5">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h2 class="mb-4">Workout Overview</h2>
+                            <ul class="list-group mb-4">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Duration
+                                    <span class="badge bg-primary rounded-pill">45 minutes</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Difficulty
+                                    <span class="badge bg-warning rounded-pill">Intermediate</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Target Areas
+                                    <span class="badge bg-info rounded-pill">Full Body</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Equipment Needed</h5>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>Dumbbells</li>
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>Exercise Mat</li>
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>Resistance Bands</li>
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>Water Bottle</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Workout Routine -->
+                <section class="mb-5">
+                    <h2 class="mb-4">Workout Routine</h2>
+                    <div class="accordion" id="workoutAccordion">
+                        <!-- Warm-up -->
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#warmup">
+                                    Warm-up (10 minutes)
+                                </button>
+                            </h3>
+                            <div id="warmup" class="accordion-collapse collapse show"
+                                data-bs-parent="#workoutAccordion">
+                                <div class="accordion-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">Arm circles (1 minute)</li>
+                                        <li class="list-group-item">Body-weight squats (2 minutes)</li>
+                                        <li class="list-group-item">Push-ups (1 minute)</li>
+                                        <li class="list-group-item">Light stretching (6 minutes)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Main Workout -->
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#mainWorkout">
+                                    Main Workout (30 minutes)
+                                </button>
+                            </h3>
+                            <div id="mainWorkout" class="accordion-collapse collapse"
+                                data-bs-parent="#workoutAccordion">
+                                <div class="accordion-body">
+                                    <div class="workout-circuit">
+                                        <h4 class="mb-3">Circuit (3 sets, rest 1-2 minutes between sets)</h4>
+                                        <ul class="list-group">
+                                            <li class="list-group-item">Dumbbell squats (12 reps)</li>
+                                            <li class="list-group-item">Dumbbell rows (12 reps)</li>
+                                            <li class="list-group-item">Dumbbell chest press (12 reps)</li>
+                                            <li class="list-group-item">Dumbbell lunges (10 reps each leg)</li>
+                                            <li class="list-group-item">Dumbbell shoulder press (12 reps)</li>
+                                            <li class="list-group-item">Plank hold (45 seconds)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cool-down -->
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#cooldown">
+                                    Cool-down (5 minutes)
+                                </button>
+                            </h3>
+                            <div id="cooldown" class="accordion-collapse collapse" data-bs-parent="#workoutAccordion">
+                                <div class="accordion-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">Light stretching for major muscle groups</li>
+                                        <li class="list-group-item">Deep breathing exercises</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tips Section -->
+                <section class="mb-5">
+                    <h2 class="mb-4">Training Tips</h2>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title"><i class="fas fa-dumbbell text-warning me-2"></i>Form &
+                                        Safety</h5>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Start with lighter weights to perfect form</li>
+                                        <li class="list-group-item">Keep your core engaged throughout exercises</li>
+                                        <li class="list-group-item">Breathe steadily during movements</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title"><i class="fas fa-chart-line text-success me-2"></i>Progress
+                                        Tips</h5>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Gradually increase weight when exercises become easy
+                                        </li>
+                                        <li class="list-group-item">Track your workouts and progress</li>
+                                        <li class="list-group-item">Rest adequately between workout days</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <h3 class="footer-title">SOS Healthy Living</h3>
+                        <p>Your comprehensive resource for balanced nutrition, effective workouts, and holistic wellness
+                            approaches.</p>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/profile.php?id=61575000126651"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.youtube.com/watch?v=CSjRBBqfhko"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-2 mb-4">
+                        <h3 class="footer-title">Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="homepage.html">Home</a></li>
+                            <li><a href="nutrition.html">Nutrition</a></li>
+                            <li><a href="mental.html">Mental Wellness</a></li>
+                            <li><a href="article.html">Article</a></li>
+                            <li><a href="lifestyle.html">Health Lifestyle</a></li>
+                            <li><a href="fitness.html">Fitness Tips</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="about.html">About Us</a></li>
+
+
+                        </ul>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <h3 class="footer-title">Resources</h3>
+                        <ul class="footer-links">
+                            <li><a
+                                    href="https://dietyourway.com.my/?srsltid=AfmBOoq43gFuzCkrtVpeV-Q5NB2ukvIbsDMite9t3FqTDudqGB0kLE1s">Meal
+                                    Plans</a></li>
+                            <li><a href="https://www.health-unlimited.com/article_a/270.htm">Healthy Living Guide</a>
+                            </li>
+                            <li><a href="https://anyflip.com/wtvjw/arzq/basic">Healthy and Wellness eBooks</a></li>
+                            <li><a href="https://www.calculator.net/fitness-and-health-calculator.html">Fitness and
+                                    Health Calculators</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <h3 class="footer-title">Contact Us</h3>
+                        <ul class="footer-links">
+                            <li><i class="fas fa-envelope me-2"></i> infosos@healthyliving.com</li>
+                            <li><i class="fas fa-phone me-2"></i> (05) 468 8888</li>
+                            <li><i class="fas fa-map-marker-alt me-2"></i> Jalan Universiti, 31900 Kampar, Perak</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 SOS Healthy Living. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Back to Top Button -->
+        <a href="#" class="back-to-top" id="back-to-top">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+        </script>
+        <!-- Login Modal -->
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="loginForm">
+                            <p>Haven't login? <a href="register.html" class="text-primary">Login here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- User Profile Modal -->
+        <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="profileModalLabel">Your Profile</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="profile-card">
+                            <div class="text-center mb-4">
+                                <img src="img/JohnDoe.png" class="rounded-circle mb-3" alt="Profile Picture"
+                                    width="150">
+                                <h4>John Doe</h4>
+                                <span class="badge bg-success">Premium Member</span>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-4 text-center">
+                                    <div class="small text-muted">Workouts</div>
+                                    <div class="h4">42</div>
+                                </div>
+                                <div class="col-4 text-center">
+                                    <div class="small text-muted">Streak</div>
+                                    <div class="h4">15</div>
+                                </div>
+                                <div class="col-4 text-center">
+                                    <div class="small text-muted">Points</div>
+                                    <div class="h4">1,250</div>
+                                </div>
+                            </div>
+
+                            <h5>Your Goals</h5>
+                            <ul class="list-group mb-4">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Lose weight
+                                    <span class="badge bg-primary rounded-pill">In Progress</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Run 5K
+                                    <span class="badge bg-success rounded-pill">Achieved</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Improve flexibility
+                                    <span class="badge bg-primary rounded-pill">In Progress</span>
+                                </li>
+                            </ul>
+
+                            <div class="d-grid gap-2">
+                                <button class="nav-item">
+                                    <a href="#" id="logout" class="nav-link">Logout</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const loginBtn = document.getElementById('login-btn');
+
+                // Check login state on page load
+                if (!UserState.isLoggedIn()) {
+                    // If not logged in, ensure the button opens the login modal
+                    loginBtn.addEventListener('click', function () {
+                        const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+                        loginModal.show();
+                    });
+                } else {
+                    // If logged in, update the button to show profile modal
+                    const userData = UserState.getUserData();
+                    UserState.updateUIForLoggedInUser(userData);
+
+                    // Add event listener for profile modal
+                    const profileBtn = document.getElementById('profile-btn');
+                    profileBtn.addEventListener('click', function () {
+                        const profileModal = new bootstrap.Modal(document.getElementById('profileModal'));
+                        profileModal.show();
+                    });
+                }
+            });
+        </script>
+
+        <script>
+            // Handle dropdown menu actions
+            document.addEventListener('click', function (e) {
+                if (e.target.id === 'logout') {
+                    e.preventDefault();
+                    UserState.logout();
+                    alert('You have been logged out successfully.');
+                    location.reload(); // Reload the page to reset the UI
+                }
+
+            });
+
+        </script>
+        <!-- Bootstrap Bundle with Popper -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        </script>
+        <!-- jQuery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+        <script src="js/userState.js"></script>
+        <!-- Custom JS -->
+        <script>
+            // Back to top button
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 300) {
+                    $('#back-to-top').addClass('active');
+                } else {
+                    $('#back-to-top').removeClass('active');
+                }
+            });
+
+            $('#back-to-top').click(function (e) {
+                e.preventDefault();
+                $('html, body').animate({ scrollTop: 0 }, 500);
+            });
+        </script>
+<script>
+    // Login modal
+    $('#login-btn').click(function () {
+        $('#loginModal').modal('show');
+    });
+
+    // Login form submission
+    $('#login-form').submit(function (e) {
+        e.preventDefault();
+
+        // Show success message and close modal
+        alert('Login successful!');
+        $('#loginModal').modal('hide');
+
+        // Simulate logged in state
+        $('#login-btn').text('My Profile');
+        $('#login-btn').attr('id', 'profile-btn');
+    });
+
+    // Profile button (after login)
+    $(document).on('click', '#profile-btn', function () {
+        $('#profileModal').modal('show');
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const loginBtn = document.getElementById('login-btn');
+        const profileBtn = document.getElementById('profile-btn');
+
+        // Check login state on page load
+        if (!UserState.isLoggedIn()) {
+            // If not logged in, ensure the button opens the login modal
+            loginBtn.style.display = 'block'; // Show login button
+            if (profileBtn) profileBtn.style.display = 'none'; // Hide profile button
+            loginBtn.addEventListener('click', function () {
+                const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+                loginModal.show();
+            });
+        } else {
+            // If logged in, update the button to show profile modal
+            const userData = UserState.getUserData();
+            UserState.updateUIForLoggedInUser(userData);
+
+            loginBtn.style.display = 'none'; // Hide login button
+            if (profileBtn) profileBtn.style.display = 'block'; // Show profile button
+
+
+            // Add event listener for profile modal
+            const profileBtn = document.getElementById('profile-btn');
+            profileBtn.addEventListener('click', function () {
+                const profileModal = new bootstrap.Modal(document.getElementById('profileModal'));
+                profileModal.show();
+            });
+        }
+    });
+</script>
+    </body>
+
+</html>

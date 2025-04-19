@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Guide - Healthy Living</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #88de8b;
+            --secondary-color: #e1f3cc;
+            --accent-color: #FF9800;
+            --light-color: #F1F8E9;
+            --dark-color: #818181;
+            --gray-color: #F5F5F5;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: var(--light-color);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-toggler {
+            border: none;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .active {
+            color: var(--primary-color) !important;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/a.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-color);
+            border-color: var(--dark-color);
+        }
+
+        /* Register button styles */
+        .btn-outline-primary {
+            border-color: #88de8b;
+            color: #88de8b;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #88de8b;
+            border-color: #88de8b;
+            color: white;
+        }
+
+        /* Add spacing between nav items */
+        .navbar-nav .btn,
+        .navbar-nav .nav-link {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/nutrition2.webp');
+            background-size: cover;
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .nutrition-intro {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            margin-bottom: 50px;
+        }
+
+        /* Macronutrients Section */
+        .macro-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            margin-bottom: 30px;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .macro-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .macro-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .macro-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .protein {
+            background-color: #E3F2FD;
+            color: #1976D2;
+        }
+
+        .carbs {
+            background-color: #FFECB3;
+            color: #FF8F00;
+        }
+
+        .fats {
+            background-color: #E8F5E9;
+            color: #388E3C;
+        }
+
+        .macro-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* Meal Planning Section */
+        .meal-planning {
+            background-color: var(--gray-color);
+        }
+
+        .meal-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meal-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            display: block;
+            margin: 0;
+        }
+
+        .meal-content {
+            padding: 20px;
+        }
+
+        .meal-tag {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .meal-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /*Healthy Recipes*/
+        .recipe-card {
+            background: white;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .nutrition-table {
+            width: 100%;
+            margin: 20px 0;
+            background: #f8fff5;
+        }
+
+        .nutrition-table td {
+            padding: 10px;
+        }
+
+        .time-badge {
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-title {
+            font-weight: 700;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #CCC;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #CCC;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-color);
+            border-color: var(--dark-color);
+        }
+
+        /* Add spacing between nav items */
+        .navbar-nav .btn,
+        .navbar-nav .nav-link {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--dark-color);
+        }
+
+        /* Progress Bar */
+        .progress {
+            height: 8px;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            background-color: var(--primary-color);
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/400') no-repeat center center;
+            background-size: cover;
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .recipe-card {
+            background: white;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #4a7c59;
+            border-bottom: 2px solid #d8e3d5;
+        }
+
+        img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .nutrition-table {
+            width: 100%;
+            margin: 20px 0;
+            background: #f8fff5;
+        }
+
+        .nutrition-table td {
+            padding: 10px;
+        }
+
+        .time-badge {
+            background: #4a7c59;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .recipe-card {
+                padding: 15px;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 991px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .page-header {
+                padding: 60px 0;
+            }
+
+            .macro-card,
+            .meal-card {
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Button Styles */
+        .btn-secondary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        .btn-secondary:hover {
+            background-color: #7CB342;
+            border-color: #7CB342;
+        }
+
+        #login-btn:hover {
+            background-color: var(--dark-color);
+            border-color: var(--dark-color);
+        }
+
+        .dropdown-menu {
+            min-width: 200px;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        .dropdown-item {
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dropdown-item i {
+            width: 20px;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--light);
+        }
+
+        .dropdown-divider {
+            margin: 0.5rem 0;
+        }
+
+        .modal-content {
+            border-radius: 10px;
+            border: none;
+        }
+
+        .modal-header {
+            border-bottom: 2px solid var(--primary-color);
+            background-color: var(--light-color);
+        }
+
+        .modal-title {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-body h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .modal-body ul {
+            padding-left: 1.5rem;
+        }
+
+        .modal-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-footer {
+            border-top: none;
+            padding: 1rem 2rem;
+        }
+
+        .modal-dialog-scrollable .modal-content {
+            max-height: 85vh;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="homepage.html">
+                    <i class="fas fa-heartbeat me-2"></i>SOS Healthy Living
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="homepage.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="nutrition.html" id="nutrition-link">Nutrition</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="mental.html" id="mental-wellness-link">Mental Wellness</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="lifestyle.html" id="healthy-lifestyle-link">Health Lifestyle</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="article.html" id="article-link">Article</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="fitness.html" id="fitness-link">Fitness Tips</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html" id="about-link">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html" id="contact-link">Contact Us</a>
+                        </li>
+                        <button id="login-btn" class="btn btn-primary ms-3">
+                            <i class="fas fa-user-circle"></i>
+                        </button>
+                        <button id="profile-btn" class="btn btn-primary ms-3">
+                            <i class="fas fa-user-circle"></i>
+                        </button>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Nutrition Guide</h1>
+            <p class="page-subtitle">Discover the fundamentals of balanced nutrition and learn how to fuel your body for
+                optimal health and wellbeing.</p>
+        </div>
+    </section>
+
+
+
+    <!-- Nutrition Introduction -->
+    <section class="container">
+        <div class="nutrition-intro">
+            <div class="row align-items-lg-stretch gx-4">
+                <!-- Text Column -->
+                <div class="col-lg-6 mb-4 mb-lg-0 h-100">
+                    <div class="h-100 pe-lg-3">
+                        <h2 class="section-title">Why Nutrition Matters</h2>
+                        <p>Proper nutrition is the foundation of good health. The food you eat provides the energy your
+                            body needs to function and affects how you feel today, tomorrow, and in the future.</p>
+                        <p>Nutrition is about eating a healthy and balanced diet so your body gets the nutrients that it
+                            needs. Nutrients are substances in foods that our bodies need to function and grow. They
+                            include carbohydrates, fats, proteins, vitamins, minerals, and water.</p>
+                        <p>At Healthy Living, we believe in science-based nutrition advice that helps you make informed
+                            choices about the foods you eat.</p>
+                    </div>
+                </div>
+
+                <!-- Video Column -->
+                <div class="col-lg-6 h-100">
+                    <div class="h-100 bg-dark rounded-3 overflow-hidden">
+                        <div class="ratio ratio-16x9 h-100">
+                            <iframe class="w-100 h-100" src="https://www.youtube.com/embed/Evji_ebWZQU"
+                                title="Nutrition Video" allowfullscreen style="object-fit: cover;">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Macronutrients Section -->
+    <section class="container section">
+        <h2 class="section-title mb-4">Understanding Macronutrients</h2>
+        <p class="mb-5">Macronutrients are the nutrients your body needs in larger amounts to provide energy and support
+            basic functions. Let's explore the three main macronutrients:</p>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="macro-card">
+                    <div class="macro-circle protein">
+                        <i class="fas fa-drumstick-bite fa-2x"></i>
+                    </div>
+                    <h3 class="macro-title">Proteins</h3>
+                    <p>The building blocks of your body's tissues, including muscles, bones, skin, and hair. Essential
+                        for growth, maintenance, and repair.</p>
+                    <h4 class="mt-4 mb-2">Sources:</h4>
+                    <ul>
+                        <li>Meat, poultry, and fish</li>
+                        <li>Eggs and dairy products</li>
+                        <li>Legumes and beans</li>
+                        <li>Nuts and seeds</li>
+                        <li>Soy products like tofu</li>
+                    </ul>
+                    <h4 class="mt-4 mb-2">Recommended Intake:</h4>
+                    <p>10-35% of daily calories</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="macro-card">
+                    <div class="macro-circle carbs">
+                        <i class="fas fa-bread-slice fa-2x"></i>
+                    </div>
+                    <h3 class="macro-title">Carbohydrates</h3>
+                    <p>Your body's main source of energy, providing fuel for your brain, muscles, and other vital
+                        organs.</p>
+                    <h4 class="mt-4 mb-2">Sources:</h4>
+                    <ul>
+                        <li>Whole grains (brown rice, oats)</li>
+                        <li>Fruits and vegetables</li>
+                        <li>Legumes and beans</li>
+                        <li>Starchy vegetables (potatoes)</li>
+                        <li>Dairy products</li>
+                    </ul>
+                    <h4 class="mt-4 mb-2">Recommended Intake:</h4>
+                    <p>45-65% of daily calories</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="macro-card">
+                    <div class="macro-circle fats">
+                        <i class="fas fa-oil-can fa-2x"></i>
+                    </div>
+                    <h3 class="macro-title">Fats</h3>
+                    <p>Essential for hormone production, cell membrane integrity, and absorption of fat-soluble
+                        vitamins.</p>
+                    <h4 class="mt-4 mb-2">Sources:</h4>
+                    <ul>
+                        <li>Avocados and olive oil</li>
+                        <li>Nuts and seeds</li>
+                        <li>Fatty fish (salmon, mackerel)</li>
+                        <li>Eggs and full-fat dairy</li>
+                        <li>Coconut and cocoa</li>
+                    </ul>
+                    <h4 class="mt-4 mb-2">Recommended Intake:</h4>
+                    <p>20-35% of daily calories</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meal Planning -->
+    <section class="meal-planning section">
+        <div class="container">
+            <h2 class="section-title">Meal Planning for Optimal Health</h2>
+            <p class="mb-5">Effective meal planning is key to maintaining a balanced diet. Here are some balanced meal
+                ideas to inspire your weekly menu:</p>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="meal-card">
+
+                        <img src="img/yogurt.webp" alt="Greek Yogurt Parfait" class="meal-image">
+                        <div class="meal-content">
+                            <span class="meal-tag">Breakfast</span>
+                            <h3 class="meal-title">Greek Yogurt Parfait</h3>
+                            <p>Greek yogurt layered with fresh berries, honey, and granola. Packed with protein and
+                                probiotics.</p>
+                            <div class="mt-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>Protein</span>
+                                    <span>20g</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>Carbs</span>
+                                    <span>35g</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>Fats</span>
+                                    <span>10g</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 30%" aria-valuenow="30"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="meal-card">
+
+                        <img src="img/Mediterranean.jpg" alt="Mediterranean Bowl" class="meal-image">
+                        <div class="meal-content">
+                            <span class="meal-tag">Lunch</span>
+                            <h3 class="meal-title">Mediterranean Bowl</h3>
+                            <p>Quinoa topped with grilled chicken, cucumber, tomatoes, feta cheese, and olive oil
+                                dressing.</p>
+                            <div class="mt-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>Protein</span>
+                                    <span>25g</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="65"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>Carbs</span>
+                                    <span>40g</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>Fats</span>
+                                    <span>15g</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="meal-card">
+
+                        <img src="img/salmon.avif" alt="Baked Salmon & Vegetables" class="meal-image">
+                        <div class="meal-content">
+                            <span class="meal-tag">Dinner</span>
+                            <h3 class="meal-title">Baked Salmon & Vegetables</h3>
+                            <p>Oven-baked salmon with roasted sweet potatoes, broccoli, and a lemon-dill sauce.</p>
+                            <div class="mt-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>Protein</span>
+                                    <span>30g</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>Carbs</span>
+                                    <span>30g</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>Fats</span>
+                                    <span>18g</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Healthy Recipes -->
+
+    <section class="container section">
+        <h2 class="section-title">Healthy Recipes</h2>
+        <p class="mb-4">Healthy recipes prioritize balanced nutrition through fresh, whole ingredients like vegetables,
+            fruits, lean proteins, whole grains, and healthy fats. </p>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="recipe-card">
+
+                    <h2>🥗 Herb Lemon Chicken Breast Salad</h2>
+                    <div class="time-badge">Prep 10 mins | Cook 15 mins</div>
+
+                    <h3>📝 Ingredients (2 servings)</h3>
+                    <ul>
+                        <li>Chicken breast 200g</li>
+                        <li>Mixed salad greens 150g</li>
+                        <li>Cherry tomatoes 10 pieces</li>
+                        <li>Lemon juice 2 tbsp</li>
+                        <li>Olive oil 1 tsp</li>
+                    </ul>
+                    <h3>🍳 Instructions</h3>
+                    <ol>
+                        <li>Marinate chicken with lemon juice and black pepper for 10 mins</li>
+                        <li>Pan-fry chicken with minimal oil and slice</li>
+                        <li>Combine washed greens with chicken</li>
+                        <li>Dress with olive oil and remaining lemon juice</li>
+                    </ol>
+                    <table class="nutrition-table">
+                        <tr>
+                            <th colspan="2">📊 Nutrition Facts (per serving)</th>
+                        </tr>
+                        <tr>
+                            <td>Calories</td>
+                            <td>280kcal</td>
+                        </tr>
+                        <tr>
+                            <td>Protein</td>
+                            <td>35g</td>
+                        </tr>
+                        <tr>
+                            <td>Fat</td>
+                            <td>8g</td>
+                        </tr>
+                        <tr>
+                            <td>Carbs</td>
+                            <td>6g</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Recipe 2: Tofu Burger -->
+
+            <div class="col-md-4">
+                <section class="recipe-card">
+                    <h2>🍔 Japanese-style Tofu Burger Steak</h2>
+                    <div class="time-badge">Prep 15 mins | Cook 20 mins</div>
+
+                    <h3>📝 Ingredients (2 servings)</h3>
+                    <ul>
+                        <li>Firm tofu 300g</li>
+                        <li>Ground chicken 150g</li>
+                        <li>Minced onion 1/4 piece</li>
+                        <li>Breadcrumbs 2 tbsp</li>
+                        <li>Teriyaki sauce 1 tbsp</li>
+                    </ul>
+                    <h3>🍳 Instructions</h3>
+                    <ol>
+                        <li>Press tofu to remove excess water</li>
+                        <li>Mix all ingredients and form into patties</li>
+                        <li>Pan-fry until golden brown</li>
+                        <li>Glaze with sauce and reduce</li>
+                    </ol>
+                    <table class="nutrition-table">
+                        <tr>
+                            <th colspan="2">📊 Nutrition Facts (per serving)</th>
+                        </tr>
+                        <tr>
+                            <td>Calories</td>
+                            <td>320kcal</td>
+                        </tr>
+                        <tr>
+                            <td>Protein</td>
+                            <td>28g</td>
+                        </tr>
+                        <tr>
+                            <td>Fat</td>
+                            <td>12g</td>
+                        </tr>
+                        <tr>
+                            <td>Carbs</td>
+                            <td>18g</td>
+                        </tr>
+                    </table>
+                </section>
+            </div>
+
+            <!-- Recipe 3: Yogurt Parfait -->
+            <div class="col-md-4">
+                <section class="recipe-card">
+                    <h2>🥣 Berry Yogurt Oatmeal Jar</h2>
+                    <div class="time-badge">Prep 5 mins | No cooking</div>
+
+                    <h3>📝 Ingredients (1 serving)</h3>
+                    <ul>
+                        <li>Unsweetened yogurt 150g</li>
+                        <li>Instant oats 30g</li>
+                        <li>Mixed berries 50g</li>
+                        <li>Chia seeds 1 tsp</li>
+                    </ul>
+                    <h3>🍳 Instructions</h3>
+                    <ol>
+                        <li>Layer oats at jar bottom</li>
+                        <li>Alternate yogurt and berries</li>
+                        <li>Sprinkle chia seeds on top</li>
+                        <li>Chill 1 hour before serving</li>
+                    </ol>
+                    <table class="nutrition-table">
+                        <tr>
+                            <th colspan="2">📊 Nutrition Facts (per serving)</th>
+                        </tr>
+                        <tr>
+                            <td>Calories</td>
+                            <td>250kcal</td>
+                        </tr>
+                        <tr>
+                            <td>Protein</td>
+                            <td>12g</td>
+                        </tr>
+                        <tr>
+                            <td>Fat</td>
+                            <td>5g</td>
+                        </tr>
+                        <tr>
+                            <td>Carbs</td>
+                            <td>35g</td>
+                        </tr>
+                    </table>
+
+                </section>
+            </div>
+    </section>
+
+
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h3 class="footer-title">SOS Healthy Living</h3>
+                    <p>Your comprehensive resource for balanced nutrition, effective workouts, and holistic
+                        wellness
+                        approaches.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=61575000126651"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/watch?v=CSjRBBqfhko"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="homepage.html">Home</a></li>
+                        <li><a href="nutrition.html">Nutrition</a></li>
+                        <li><a href="mental.html">Mental Wellness</a></li>
+                        <li><a href="article.html">Article</a></li>
+                        <li><a href="lifestyle.html">Health Lifestyle</a></li>
+                        <li><a href="fitness.html">Fitness Tips</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="about.html">About Us</a></li>
+
+                    </ul>
+
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h3 class="footer-title">Resources</h3>
+                    <ul class="footer-links">
+                        <li><a
+                                href="https://dietyourway.com.my/?srsltid=AfmBOoq43gFuzCkrtVpeV-Q5NB2ukvIbsDMite9t3FqTDudqGB0kLE1s">Meal
+                                Plans</a></li>
+                        <li><a href="https://www.health-unlimited.com/article_a/270.htm">Healthy Living
+                                Guide</a>
+                        </li>
+                        <li><a href="#">Wellness eBooks</a></li>
+                        <li><a href="https://www.calculator.net/fitness-and-health-calculator.html">Health
+                                Calculators</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope me-2"></i> infosos@healthyliving.com</li>
+                        <li><i class="fas fa-phone me-2"></i> (05) 468 8888</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Jalan Universiti, 31900 Kampar, Perak
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 SOS Healthy Living. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+
+        $(document).ready(function () {
+
+            $('.nav-link').click(function () {
+                const page = $(this).text().toLowerCase();
+                sessionStorage.setItem('lastVisitedPage', page);
+            });
+        });
+
+    </script>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" id="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <p>Don't have an account? <a href="register.html" class="text-primary">Register here</a></p>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btn-close" class="btn btn-secondary"
+                        data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- User Profile Modal -->
+    <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileModalLabel">Your Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="profile-card">
+                        <div class="text-center mb-4">
+                            <img src="img/JohnDoe.png" class="rounded-circle mb-3" alt="Profile Picture" width="150">
+                            <h4>John Doe</h4>
+                            <span class="badge bg-success">Premium Member</span>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-4 text-center">
+                                <div class="small text-muted">Workouts</div>
+                                <div class="h4">42</div>
+                            </div>
+                            <div class="col-4 text-center">
+                                <div class="small text-muted">Streak</div>
+                                <div class="h4">15</div>
+                            </div>
+                            <div class="col-4 text-center">
+                                <div class="small text-muted">Points</div>
+                                <div class="h4">1,250</div>
+                            </div>
+                        </div>
+
+                        <h5>Your Goals</h5>
+                        <ul class="list-group mb-4">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Lose weight
+                                <span class="badge bg-primary rounded-pill">In Progress</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Run 5K
+                                <span class="badge bg-success rounded-pill">Achieved</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Improve flexibility
+                                <span class="badge bg-primary rounded-pill">In Progress</span>
+                            </li>
+                        </ul>
+
+                        <div class="d-grid gap-2">
+                            <button class="nav-item">
+                                <a href="#" id="logout" class="nav-link">Logout</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Handle dropdown menu actions
+        document.addEventListener('click', function (e) {
+            if (e.target.id === 'logout') {
+                e.preventDefault();
+                UserState.logout();
+                alert('You have been logged out successfully.');
+                location.reload(); // Reload the page to reset the UI
+            }
+
+        });
+
+    </script>
+
+    <script>
+        // Handle close button actions
+        document.addEventListener('click', function (e) {
+            if (e.target.id === 'btn-close') {
+                e.preventDefault();
+                location.reload(); // Reload the page to reset the UI
+            }
+
+        });
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="js/userState.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Back to top button
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 300) {
+                $('#back-to-top').addClass('active');
+            } else {
+                $('#back-to-top').removeClass('active');
+            }
+        });
+
+        $('#back-to-top').click(function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, 500);
+        });
+    </script>
+    <script>
+        // Login modal
+        $('#login-btn').click(function () {
+            $('#loginModal').modal('show');
+        });
+
+        // Login form submission
+        $('#login-form').submit(function (e) {
+            e.preventDefault();
+
+            // Show success message and close modal
+            alert('Login successful!');
+            $('#loginModal').modal('hide');
+
+            // Simulate logged in state
+            $('#login-btn').text('My Profile');
+            $('#login-btn').attr('id', 'profile-btn');
+        });
+
+        // Profile button (after login)
+        $(document).on('click', '#profile-btn', function () {
+            $('#profileModal').modal('show');
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginBtn = document.getElementById('login-btn');
+            const profileBtn = document.getElementById('profile-btn');
+
+            // Check login state on page load
+            if (!UserState.isLoggedIn()) {
+                // If not logged in, ensure the button opens the login modal
+                loginBtn.style.display = 'block'; // Show login button
+                if (profileBtn) profileBtn.style.display = 'none'; // Hide profile button
+                loginBtn.addEventListener('click', function () {
+                    const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+                    loginModal.show();
+                });
+            } else {
+                // If logged in, update the button to show profile modal
+                const userData = UserState.getUserData();
+                UserState.updateUIForLoggedInUser(userData);
+
+                loginBtn.style.display = 'none'; // Hide login button
+                if (profileBtn) profileBtn.style.display = 'block'; // Show profile button
+
+
+                // Add event listener for profile modal
+                const profileBtn = document.getElementById('profile-btn');
+                profileBtn.addEventListener('click', function () {
+                    const profileModal = new bootstrap.Modal(document.getElementById('profileModal'));
+                    profileModal.show();
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

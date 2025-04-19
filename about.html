@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | SOS Healthy Living</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary-color: #88de8b;
+            --secondary-color: #e1f3cc;
+            --accent-color: #FF9800;
+            --light-color: #F1F8E9;
+            --dark-color: #818181;
+            --gray-color: #F5F5F5;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .active {
+            color: var(--primary-color) !important;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: var(--light-color);
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            bottom: -10px;
+            left: 0;
+            background-color: var(--primary-color);
+        }
+
+        .mission-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .mission-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .mission-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .team-member {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .team-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .stats-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 80px 0;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #6ecf72;
+            border-color: #6ecf72;
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        /* Add spacing between nav items */
+        .navbar-nav .btn,
+        .navbar-nav .nav-link {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-title {
+            font-weight: 700;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #CCC;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #CCC;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--dark-color);
+        }
+
+        /* Button Styles */
+        .btn-secondary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        .btn-secondary:hover {
+            background-color: #7CB342;
+            border-color: #7CB342;
+        }
+
+        #login-btn:hover {
+            background-color: var(--dark-color);
+            border-color: var(--dark-color);
+        }
+
+        .dropdown-menu {
+            min-width: 200px;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        .dropdown-item {
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dropdown-item i {
+            width: 20px;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--light);
+        }
+
+        .dropdown-divider {
+            margin: 0.5rem 0;
+        }
+
+        .modal-content {
+            border-radius: 10px;
+            border: none;
+        }
+
+        .modal-header {
+            border-bottom: 2px solid var(--primary-color);
+            background-color: var(--light-color);
+        }
+
+        .modal-title {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-body h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .modal-body ul {
+            padding-left: 1.5rem;
+        }
+
+        .modal-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-footer {
+            border-top: none;
+            padding: 1rem 2rem;
+        }
+
+        .modal-dialog-scrollable .modal-content {
+            max-height: 85vh;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="homepage.html">
+                    <i class="fas fa-heartbeat me-2"></i>SOS Healthy Living
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="homepage.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="nutrition.html" id="nutrition-link">Nutrition</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="mental.html" id="mental-wellness-link">Mental Wellness</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="lifestyle.html" id="healthy-lifestyle-link">Health Lifestyle</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="article.html" id="article-link">Article</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="fitness.html" id="fitness-link">Fitness Tips</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="about.html" id="about-link">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html" id="contact-link">Contact Us</a>
+                        </li>
+
+                        <button id="login-btn" class="btn btn-primary ms-3">
+                            <i class="fas fa-user-circle"></i>
+                        </button>
+                        <button id="profile-btn" class="btn btn-primary ms-3">
+                            <i class="fas fa-user-circle"></i>
+                        </button>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 class="hero-title animate__animated animate__fadeInDown">About SOS Healthy Living</h1>
+                    <p class="lead animate__animated animate__fadeInUp animate__delay-1s">Empowering you to live your
+                        healthiest life through nutrition, fitness, and wellness</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="section-title">Our Story</h2>
+                    <p class="lead">Founded in 2020, SOS Healthy Living began as a small initiative to promote healthy
+                        lifestyles among university students.</p>
+                    <p>Today, we've grown into a comprehensive wellness platform serving people from all walks of life.
+                        Our mission is to make healthy living accessible, practical, and enjoyable for everyone,
+                        regardless of their starting point.</p>
+                    <p>We believe that small, consistent changes lead to big results, and we're here to guide you every
+                        step of the way.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Healthy food" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5">
+                    <h2 class="section-title">Our Mission & Values</h2>
+                    <p class="lead">We believe true health is about balance in all aspects of life</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>Holistic Health</h3>
+                        <p>We address all aspects of wellness - physical, mental, and emotional - for complete
+                            well-being.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Evidence-Based</h3>
+                        <p>Our content is backed by scientific research and reviewed by health professionals.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Community Focus</h3>
+                        <p>We foster a supportive community where everyone can share their health journey.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5">
+                    <h2 class="section-title">Meet Our Team</h2>
+                    <p class="lead">Our multidisciplinary team brings together experts from nutrition, fitness, and
+                        wellness.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="team-member">
+                        <img src="img/angyingbei.JPG" alt="Team Member" class="team-img">
+                        <h4>Ang Ying Bei</h4>
+                        <p class="text-muted">Mindfulness Coach</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="team-member">
+                        <img src="img/wiseleezheyu.jpg" alt="Team Member" class="team-img">
+                        <h4>Wise Lee Zhe Yu</h4>
+                        <p class="text-muted">Fitness Coach</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="team-member">
+                        <img src="img/tangruen.jpg" alt="Team Member" class="team-img">
+                        <h4>Tang Ru En</h4>
+                        <p class="text-muted">Wellness Expert</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="team-member">
+                        <img src="img/ngzhinong.jpg" alt="Team Member" class="team-img">
+                        <h4>Ng Zhi Nong</h4>
+                        <p class="text-muted">Nutritionist</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">500K+</div>
+                        <p>Monthly Readers</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">1K+</div>
+                        <p>Healthy Recipes</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <p>Expert Contributors</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">10M+</div>
+                        <p>Social Followers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5">
+                    <h2 class="section-title">What Our Community Says</h2>
+                    <p class="lead">Don't just take our word for it - hear from those who've transformed their lives</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"SOS Healthy Living changed my approach to food. I've lost 20 pounds
+                            and feel better than ever!"</p>
+                        <div class="testimonial-author">Jessica T.</div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The fitness routines are adaptable for all levels. I started as a
+                            beginner and now I'm hooked!"</p>
+                        <div class="testimonial-author">Robert L.</div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Finally, a health site that's not about extreme diets but
+                            sustainable lifestyle changes."</p>
+                        <div class="testimonial-author">Maria G.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h3 class="footer-title">SOS Healthy Living</h3>
+                    <p>Your comprehensive resource for balanced nutrition, effective workouts, and holistic wellness
+                        approaches.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=61575000126651"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/watch?v=CSjRBBqfhko"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="homepage.html">Home</a></li>
+                        <li><a href="nutrition.html">Nutrition</a></li>
+                        <li><a href="mental.html">Mental Wellness</a></li>
+                        <li><a href="article.html">Article</a></li>
+                        <li><a href="lifestyle.html">Health Lifestyle</a></li>
+                        <li><a href="fitness.html">Fitness Tips</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="about.html">About Us</a></li>
+
+                    </ul>
+
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h3 class="footer-title">Resources</h3>
+                    <ul class="footer-links">
+                        <li><a
+                                href="https://dietyourway.com.my/?srsltid=AfmBOoq43gFuzCkrtVpeV-Q5NB2ukvIbsDMite9t3FqTDudqGB0kLE1s">Meal
+                                Plans</a></li>
+                        <li><a href="https://www.health-unlimited.com/article_a/270.htm">Healthy Living Guide</a></li>
+                        <li><a href="https://anyflip.com/wtvjw/arzq/basic">Healthy and Wellness eBooks</a></li>
+                        <li><a href="https://www.calculator.net/fitness-and-health-calculator.html">Fitness and Health
+                                Calculators</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope me-2"></i> infosos@healthyliving.com</li>
+                        <li><i class="fas fa-phone me-2"></i> (05) 468 8888</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Jalan Universiti, 31900 Kampar, Perak</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 SOS Healthy Living. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" id="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <p>Don't have an account? <a href="register.html" class="text-primary">Register here</a></p>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btn-close" class="btn btn-secondary"
+                        data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- User Profile Modal -->
+    <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileModalLabel">Your Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="profile-card">
+                        <div class="text-center mb-4">
+                            <img src="img/JohnDoe.png" class="rounded-circle mb-3" alt="Profile Picture" width="150">
+                            <h4>John Doe</h4>
+                            <span class="badge bg-success">Premium Member</span>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-4 text-center">
+                                <div class="small text-muted">Workouts</div>
+                                <div class="h4">42</div>
+                            </div>
+                            <div class="col-4 text-center">
+                                <div class="small text-muted">Streak</div>
+                                <div class="h4">15</div>
+                            </div>
+                            <div class="col-4 text-center">
+                                <div class="small text-muted">Points</div>
+                                <div class="h4">1,250</div>
+                            </div>
+                        </div>
+
+                        <h5>Your Goals</h5>
+                        <ul class="list-group mb-4">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Lose weight
+                                <span class="badge bg-primary rounded-pill">In Progress</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Run 5K
+                                <span class="badge bg-success rounded-pill">Achieved</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Improve flexibility
+                                <span class="badge bg-primary rounded-pill">In Progress</span>
+                            </li>
+                        </ul>
+
+                        <div class="d-grid gap-2">
+                            <button class="nav-item">
+                                <a href="#" id="logout" class="nav-link">Logout</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Handle dropdown menu actions
+        document.addEventListener('click', function (e) {
+            if (e.target.id === 'logout') {
+                e.preventDefault();
+                UserState.logout();
+                alert('You have been logged out successfully.');
+                location.reload(); // Reload the page to reset the UI
+            }
+
+        });
+
+    </script>
+
+    <script>
+        // Handle close button actions
+        document.addEventListener('click', function (e) {
+            if (e.target.id === 'btn-close') {
+                e.preventDefault();
+                location.reload(); // Reload the page to reset the UI
+            }
+
+        });
+
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginBtn = document.getElementById('login-btn');
+
+            // Check login state on page load
+            if (!UserState.isLoggedIn()) {
+                // If not logged in, ensure the button opens the login modal
+                loginBtn.addEventListener('click', function () {
+                    const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+                    loginModal.show();
+                });
+            } else {
+                // If logged in, update the button to show profile modal
+                const userData = UserState.getUserData();
+                UserState.updateUIForLoggedInUser(userData);
+
+                // Add event listener for profile modal
+                const profileBtn = document.getElementById('profile-btn');
+                profileBtn.addEventListener('click', function () {
+                    const profileModal = new bootstrap.Modal(document.getElementById('profileModal'));
+                    profileModal.show();
+                });
+            }
+        });
+    </script>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    </script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="js/userState.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Back to top button
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 300) {
+                $('#back-to-top').addClass('active');
+            } else {
+                $('#back-to-top').removeClass('active');
+            }
+        });
+
+        $('#back-to-top').click(function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, 500);
+        });
+    </script>
+    <script>
+        // Login modal
+        $('#login-btn').click(function () {
+            $('#loginModal').modal('show');
+        });
+
+        // Login form submission
+        $('#login-form').submit(function (e) {
+            e.preventDefault();
+
+            // Show success message and close modal
+            alert('Login successful!');
+            $('#loginModal').modal('hide');
+
+            // Simulate logged in state
+            $('#login-btn').text('My Profile');
+            $('#login-btn').attr('id', 'profile-btn');
+        });
+
+        // Profile button (after login)
+        $(document).on('click', '#profile-btn', function () {
+            $('#profileModal').modal('show');
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginBtn = document.getElementById('login-btn');
+            const profileBtn = document.getElementById('profile-btn');
+
+            // Check login state on page load
+            if (!UserState.isLoggedIn()) {
+                // If not logged in, ensure the button opens the login modal
+                loginBtn.style.display = 'block'; // Show login button
+                if (profileBtn) profileBtn.style.display = 'none'; // Hide profile button
+                loginBtn.addEventListener('click', function () {
+                    const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+                    loginModal.show();
+                });
+            } else {
+                // If logged in, update the button to show profile modal
+                const userData = UserState.getUserData();
+                UserState.updateUIForLoggedInUser(userData);
+
+                loginBtn.style.display = 'none'; // Hide login button
+                if (profileBtn) profileBtn.style.display = 'block'; // Show profile button
+
+
+                // Add event listener for profile modal
+                const profileBtn = document.getElementById('profile-btn');
+                profileBtn.addEventListener('click', function () {
+                    const profileModal = new bootstrap.Modal(document.getElementById('profileModal'));
+                    profileModal.show();
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | SOS Healthy Living</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary-color: #88de8b;
+            --secondary-color: #e1f3cc;
+            --accent-color: #FF9800;
+            --light-color: #F1F8E9;
+            --dark-color: #818181;
+            --gray-color: #F5F5F5;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .active {
+            color: var(--primary-color) !important;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: var(--light-color);
+        }
+
+        .contact-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .contact-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            border-top: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(136, 222, 139, 0.25);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+
+        }
+
+        .btn-primary:hover {
+            background-color: #6ecf72;
+            border-color: #6ecf72;
+        }
+
+        /* Register button styles */
+        .btn-outline-primary {
+            border-color: #88de8b;
+            color: #88de8b;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #88de8b;
+            border-color: #88de8b;
+            color: white;
+        }
+
+        /* Add spacing between nav items */
+        .navbar-nav .btn,
+        .navbar-nav .nav-link {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .contact-info-icon {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            bottom: -10px;
+            left: 0;
+            background-color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-title {
+            font-weight: 700;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #CCC;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #CCC;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--dark-color);
+        }
+
+        /* Button Styles */
+        .btn-secondary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        .btn-secondary:hover {
+            background-color: #7CB342;
+            border-color: #7CB342;
+        }
+
+        #login-btn:hover {
+            background-color: var(--dark-color);
+            border-color: var(--dark-color);
+        }
+
+        .dropdown-menu {
+            min-width: 200px;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        .dropdown-item {
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dropdown-item i {
+            width: 20px;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--light);
+        }
+
+        .dropdown-divider {
+            margin: 0.5rem 0;
+        }
+
+        .modal-content {
+            border-radius: 10px;
+            border: none;
+        }
+
+        .modal-header {
+            border-bottom: 2px solid var(--primary-color);
+            background-color: var(--light-color);
+        }
+
+        .modal-title {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-body h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .modal-body ul {
+            padding-left: 1.5rem;
+        }
+
+        .modal-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-footer {
+            border-top: none;
+            padding: 1rem 2rem;
+        }
+
+        .modal-dialog-scrollable .modal-content {
+            max-height: 85vh;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="homepage.html">
+                    <i class="fas fa-heartbeat me-2"></i>SOS Healthy Living
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="homepage.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="nutrition.html" id="nutrition-link">Nutrition</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="mental.html" id="mental-wellness-link">Mental Wellness</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="lifestyle.html" id="healthy-lifestyle-link">Health Lifestyle</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="article.html" id="article-link">Article</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="fitness.html" id="fitness-link">Fitness Tips</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html" id="about-link">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="contact.html" id="contact-link">Contact Us</a>
+                        </li>
+
+                        <button id="login-btn" class="btn btn-primary ms-3">
+                            <i class="fas fa-user-circle"></i>
+                        </button>
+                        <button id="profile-btn" class="btn btn-primary ms-3">
+                            <i class="fas fa-user-circle"></i>
+                        </button>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 class="contact-title animate__animated animate__fadeInDown">Contact Our Wellness Team</h1>
+                    <p class="lead animate__animated animate__fadeInUp animate__delay-1s">We're here to answer your
+                        questions and help you start your health journey</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Cards -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Visit Us</h3>
+                        <p>Jalan Universiti, 31900 Kampar, Perak</p>
+                        <a href="#map" class="text-primary">View on map <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Call Us</h3>
+                        <p>General Inquiries: <a href="tel:+6054688888" class="text-dark">(05) 468 8888</a><br>
+                            Support: <a href="tel:+6054688889" class="text-dark">(05) 468 8889</a></p>
+                        <p>Monday - Friday: 9am - 6pm</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Us</h3>
+                        <p>General: <a href="mailto:infosos@healthyliving.com"
+                                class="text-dark">infosos@healthyliving.com</a><br>
+                            Support: <a href="mailto:support@healthyliving.com"
+                                class="text-dark">support@healthyliving.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="section-title">Send Us a Message</h2>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="First Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Last Name" required>
+                            </div>
+                        </div>
+                        <input type="email" class="form-control" placeholder="Email Address" required>
+                        <input type="tel" class="form-control" placeholder="Phone Number">
+                        <select class="form-control">
+                            <option value="" disabled selected>I'm interested in...</option>
+                            <option value="nutrition">Nutrition Consultation</option>
+                            <option value="fitness">Fitness Program</option>
+                            <option value="wellness">Wellness Coaching</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" id="consent" required>
+                            <label class="form-check-label" for="consent">
+                                I agree to the <a href="#" class="text-primary">privacy policy</a>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title">What Happens Next?</h2>
+                    <p class="lead mb-4">Our team is committed to providing you with the best possible service.</p>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-comment-dots"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Initial Response</h4>
+                            <p>We'll respond to your inquiry within 24 hours to discuss your needs.</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Personalized Plan</h4>
+                            <p>We'll schedule a consultation to create a customized wellness plan for you.</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Ongoing Support</h4>
+                            <p>You'll receive continuous support from our team throughout your journey.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.317663382651!2d101.03227731533136!3d4.329808997999358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31c9b7a1e1b9a6d5%3A0x1d1a1a1a1a1a1a1a!2sUniversiti%20Tunku%20Abdul%20Rahman!5e0!3m2!1sen!2smy!4v1620000000000!5m2!1sen!2smy"
+                            allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title">Our Kampar Campus</h2>
+                    <p class="mb-4">Visit our main wellness center at UTAR Kampar Campus for personalized consultations
+                        and health services.</p>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Address</h4>
+                            <p>Jalan Universiti, Bandar Barat<br>31900 Kampar, Perak</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Hours</h4>
+                            <p>Monday - Friday: 9am - 6pm<br>
+                                Saturday: 9am - 1pm<br>
+                                Sunday: Closed</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-bus"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Transportation</h4>
+                            <p>Conveniently located on campus with ample parking available. Accessible by public buses.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h3 class="footer-title">SOS Healthy Living</h3>
+                    <p>Your comprehensive resource for balanced nutrition, effective workouts, and holistic wellness
+                        approaches.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=61575000126651"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/watch?v=CSjRBBqfhko"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="homepage.html">Home</a></li>
+                        <li><a href="nutrition.html">Nutrition</a></li>
+                        <li><a href="mental.html">Mental Wellness</a></li>
+                        <li><a href="article.html">Article</a></li>
+                        <li><a href="lifestyle.html">Health Lifestyle</a></li>
+                        <li><a href="fitness.html">Fitness Tips</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="about.html">About Us</a></li>
+
+                    </ul>
+
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h3 class="footer-title">Resources</h3>
+                    <ul class="footer-links">
+                        <li><a
+                                href="https://dietyourway.com.my/?srsltid=AfmBOoq43gFuzCkrtVpeV-Q5NB2ukvIbsDMite9t3FqTDudqGB0kLE1s">Meal
+                                Plans</a></li>
+                        <li><a href="https://www.health-unlimited.com/article_a/270.htm">Healthy Living Guide</a></li>
+                        <li><a href="https://anyflip.com/wtvjw/arzq/basic">Healthy and Wellness eBooks</a></li>
+                        <li><a href="https://www.calculator.net/fitness-and-health-calculator.html">Fitness and Health
+                                Calculators</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope me-2"></i> infosos@healthyliving.com</li>
+                        <li><i class="fas fa-phone me-2"></i> (05) 468 8888</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Jalan Universiti, 31900 Kampar, Perak</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 SOS Healthy Living. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Form submission
+        $('form').submit(function (e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will contact you shortly.');
+            this.reset();
+        });
+    </script>
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" id="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <p>Don't have an account? <a href="register.html" class="text-primary">Register here</a></p>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btn-close" class="btn btn-secondary"
+                        data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <!-- User Profile Modal -->
+    <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileModalLabel">Your Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="profile-card">
+                        <div class="text-center mb-4">
+                            <img src="img/JohnDoe.png" class="rounded-circle mb-3" alt="Profile Picture" width="150">
+                            <h4>John Doe</h4>
+                            <span class="badge bg-success">Premium Member</span>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-4 text-center">
+                                <div class="small text-muted">Workouts</div>
+                                <div class="h4">42</div>
+                            </div>
+                            <div class="col-4 text-center">
+                                <div class="small text-muted">Streak</div>
+                                <div class="h4">15</div>
+                            </div>
+                            <div class="col-4 text-center">
+                                <div class="small text-muted">Points</div>
+                                <div class="h4">1,250</div>
+                            </div>
+                        </div>
+
+                        <h5>Your Goals</h5>
+                        <ul class="list-group mb-4">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Lose weight
+                                <span class="badge bg-primary rounded-pill">In Progress</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Run 5K
+                                <span class="badge bg-success rounded-pill">Achieved</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Improve flexibility
+                                <span class="badge bg-primary rounded-pill">In Progress</span>
+                            </li>
+                        </ul>
+
+                        <div class="d-grid gap-2">
+                            <button class="nav-item">
+                                <a href="#" id="logout" class="nav-link">Logout</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Handle dropdown menu actions
+        document.addEventListener('click', function (e) {
+            if (e.target.id === 'logout') {
+                e.preventDefault();
+                UserState.logout();
+                alert('You have been logged out successfully.');
+                location.reload(); // Reload the page to reset the UI
+            }
+
+        });
+
+    </script>
+
+    <script>
+        // Handle close button actions
+        document.addEventListener('click', function (e) {
+            if (e.target.id === 'btn-close') {
+                e.preventDefault();
+                location.reload(); // Reload the page to reset the UI
+            }
+
+        });
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="js/userState.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Back to top button
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 300) {
+                $('#back-to-top').addClass('active');
+            } else {
+                $('#back-to-top').removeClass('active');
+            }
+        });
+
+        $('#back-to-top').click(function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, 500);
+        });
+    </script>
+    <script>
+        // Login modal
+        $('#login-btn').click(function () {
+            $('#loginModal').modal('show');
+        });
+
+        // Login form submission
+        $('#login-form').submit(function (e) {
+            e.preventDefault();
+
+            // Show success message and close modal
+            alert('Login successful!');
+            $('#loginModal').modal('hide');
+
+            // Simulate logged in state
+            $('#login-btn').text('My Profile');
+            $('#login-btn').attr('id', 'profile-btn');
+        });
+
+        // Profile button (after login)
+        $(document).on('click', '#profile-btn', function () {
+            $('#profileModal').modal('show');
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginBtn = document.getElementById('login-btn');
+            const profileBtn = document.getElementById('profile-btn');
+
+            // Check login state on page load
+            if (!UserState.isLoggedIn()) {
+                // If not logged in, ensure the button opens the login modal
+                loginBtn.style.display = 'block'; // Show login button
+                if (profileBtn) profileBtn.style.display = 'none'; // Hide profile button
+                loginBtn.addEventListener('click', function () {
+                    const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+                    loginModal.show();
+                });
+            } else {
+                // If logged in, update the button to show profile modal
+                const userData = UserState.getUserData();
+                UserState.updateUIForLoggedInUser(userData);
+
+                loginBtn.style.display = 'none'; // Hide login button
+                if (profileBtn) profileBtn.style.display = 'block'; // Show profile button
+
+
+                // Add event listener for profile modal
+                const profileBtn = document.getElementById('profile-btn');
+                profileBtn.addEventListener('click', function () {
+                    const profileModal = new bootstrap.Modal(document.getElementById('profileModal'));
+                    profileModal.show();
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

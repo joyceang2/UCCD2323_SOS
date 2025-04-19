@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | SOS Healthy Living</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #88de8b;
+            --secondary-color: #e1f3cc;
+            --accent-color: #FF9800;
+            --light-color: #F1F8E9;
+            --dark-color: #818181;
+            --gray-color: #F5F5F5;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .auth-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .auth-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .auth-hero {
+            background: linear-gradient(135deg, var(--primary-color), #6ecf72);
+            color: white;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .auth-hero h2 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .auth-hero p {
+            opacity: 0.9;
+        }
+
+        .auth-form {
+            padding: 60px;
+        }
+
+        .auth-tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .auth-tab {
+            padding: 12px 25px;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--dark-color);
+            position: relative;
+            margin: 0 10px;
+        }
+
+        .auth-tab.active {
+            color: var(--primary-color);
+        }
+
+        .auth-tab.active:after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .form-control {
+            height: 50px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(136, 222, 139, 0.25);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            height: 50px;
+            font-weight: 500;
+            border-radius: 8px;
+        }
+
+        .btn-primary:hover {
+            background-color: #6ecf72;
+            border-color: #6ecf72;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            color: #999;
+        }
+
+        .divider:before,
+        .divider:after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #eee;
+        }
+
+        .divider:before {
+            margin-right: 15px;
+        }
+
+        .divider:after {
+            margin-left: 15px;
+        }
+
+        .social-auth {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .social-btn {
+            flex: 1;
+            height: 50px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e0e0e0;
+            background: white;
+            color: #555;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: #f5f5f5;
+        }
+
+        .social-btn i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .google-btn {
+            color: #DB4437;
+        }
+
+        .facebook-btn {
+            color: #4267B2;
+        }
+
+        .apple-btn {
+            color: #000;
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #777;
+        }
+
+        .auth-footer a {
+            color: var(--primary-color);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .password-input {
+            position: relative;
+        }
+
+        .verification-code {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .verification-code input {
+            flex: 1;
+            text-align: center;
+            font-size: 1.5rem;
+            height: 60px;
+        }
+
+        .resend-code {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .resend-code a {
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .login-options {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .login-option-btn {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-option-btn.active {
+            border-color: var(--primary-color);
+            background-color: var(--light-color);
+            color: var(--primary-color);
+        }
+
+        .login-option-btn:hover {
+            border-color: var(--primary-color);
+        }
+
+        /* Signed in state styles */
+        #signed-in-state {
+            text-align: center;
+            padding: 20px;
+        }
+
+        #signed-in-state .btn {
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        #sign-out-btn-secondary {
+            margin-top: 15px;
+            background: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        #sign-out-btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        #displayUserName {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        @media (max-width: 992px) {
+            .auth-hero {
+                padding: 40px;
+            }
+
+            .auth-form {
+                padding: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .auth-container {
+                padding: 20px 10px;
+            }
+
+            .auth-card {
+                flex-direction: column;
+            }
+
+            .auth-hero {
+                padding: 30px 20px;
+                text-align: center;
+            }
+
+            .auth-form {
+                padding: 30px 20px;
+            }
+
+            .social-auth {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .login-options {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Include Header -->
+    <div id="header"></div>
+
+    <div class="auth-container">
+        <div class="auth-card row g-0">
+            <div class="col-lg-6 d-none d-lg-flex">
+                <div class="auth-hero">
+                    <h2>Join Our Wellness Community</h2>
+                    <p>Create your account to access personalized health plans, track your progress, and connect with
+                        our experts.</p>
+                    <ul class="mt-4" style="list-style: none; padding: 0;">
+                        <li class="mb-3"><i class="fas fa-check-circle me-2"></i> Personalized nutrition plans</li>
+                        <li class="mb-3"><i class="fas fa-check-circle me-2"></i> Exclusive workout routines</li>
+                        <li class="mb-3"><i class="fas fa-check-circle me-2"></i> Health progress tracking</li>
+                        <li><i class="fas fa-check-circle me-2"></i> 24/7 expert support</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="auth-form">
+                    <div class="auth-tabs">
+                        <div class="auth-tab active" id="signup-tab">Sign Up</div>
+                        <div class="auth-tab" id="signin-tab">Sign In</div>
+                    </div>
+
+                    <!-- Sign Up Form -->
+                    <div id="signup-form">
+                        <h3 class="mb-4">Create Your Account</h3>
+
+                        <div class="login-options">
+                            <div class="login-option-btn active" data-option="email">Email</div>
+                            <div class="login-option-btn" data-option="phone">Phone</div>
+                            <div class="login-option-btn" data-option="facebook">Facebook</div>
+                        </div>
+
+                        <!-- Email Registration Form -->
+                        <div id="email-register-form">
+                            <form id="emailRegisterForm">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="fullName" placeholder="Full Name"
+                                        required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" id="email" placeholder="Email Address"
+                                        required>
+                                </div>
+                                <div class="mb-3 password-input">
+                                    <input type="password" class="form-control" id="password" placeholder="Password"
+                                        required>
+                                    <span class="password-toggle" id="togglePassword">
+                                        <i class="far fa-eye"></i>
+                                    </span>
+                                </div>
+                                <div class="mb-3 password-input">
+                                    <input type="password" class="form-control" id="confirmPassword"
+                                        placeholder="Confirm Password" required>
+                                    <span class="password-toggle" id="toggleConfirmPassword">
+                                        <i class="far fa-eye"></i>
+                                    </span>
+                                </div>
+                                <div class="form-check mb-4">
+                                    <input class="form-check-input" type="checkbox" id="terms" required>
+                                    <label class="form-check-label" for="terms">
+                                        I agree to the <a href="terms-of-service.html" class="text-primary">Terms of Service</a> and <a
+                                            href="privacy-policy.html" class="text-primary">Privacy Policy</a>
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Create Account</button>
+                            </form>
+                        </div>
+
+                        <!-- Phone Registration Form -->
+                        <div id="phone-register-form" style="display: none;">
+                            <form id="phoneRegisterForm">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="phoneFullName" placeholder="Full Name"
+                                        required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="tel" class="form-control" id="phoneNumber" placeholder="Phone Number"
+                                        required>
+                                </div>
+                                <button type="button" id="sendVerificationBtn" class="btn btn-primary w-100 mb-3">Send
+                                    Verification Code</button>
+
+                                <div id="verificationSection" style="display: none;">
+                                    <div class="verification-code">
+                                        <input type="text" maxlength="1" class="form-control" id="digit1">
+                                        <input type="text" maxlength="1" class="form-control" id="digit2">
+                                        <input type="text" maxlength="1" class="form-control" id="digit3">
+                                        <input type="text" maxlength="1" class="form-control" id="digit4">
+                                        <input type="text" maxlength="1" class="form-control" id="digit5">
+                                        <input type="text" maxlength="1" class="form-control" id="digit6">
+                                    </div>
+                                    <div class="resend-code">
+                                        Didn't receive code? <a id="resendCode">Resend</a>
+                                    </div>
+                                    <div class="form-check mb-4">
+                                        <input class="form-check-input" type="checkbox" id="phoneTerms" required>
+                                        <label class="form-check-label" for="phoneTerms">
+                                            I agree to the <a href="terms-of-service.html" class="text-primary">Terms of Service</a> and <a
+                                                href="privacy-policy.html" class="text-primary">Privacy Policy</a>
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Verify and Register</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Facebook Registration -->
+                        <div id="facebook-register-form" style="display: none; text-align: center;">
+                            <p class="mb-4">Register with your Facebook account</p>
+                            <button class="btn btn-primary" id="facebookRegisterBtn">
+                                <i class="fab fa-facebook-f me-2"></i> Continue with Facebook
+                            </button>
+                        </div>
+
+                        <div class="auth-footer">
+                            Already have an account? <a href="#" id="switch-to-signin">Sign In</a>
+                        </div>
+                    </div>
+
+                    <!-- Sign In Form -->
+                    <div id="signin-form" style="display: none;">
+                        <h3 class="mb-4">Welcome Back</h3>
+
+                        <div class="login-options">
+                            <div class="login-option-btn active" data-option="email">Email</div>
+                            <div class="login-option-btn" data-option="phone">Phone</div>
+                            <div class="login-option-btn" data-option="facebook">Facebook</div>
+                        </div>
+
+                        <!-- Email Login Form -->
+                        <div id="email-login-form">
+                            <form id="emailLoginForm">
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" id="loginEmail" placeholder="Email Address"
+                                        required>
+                                </div>
+                                <div class="mb-3 password-input">
+                                    <input type="password" class="form-control" id="loginPassword"
+                                        placeholder="Password" required>
+                                    <span class="password-toggle" id="toggleLoginPassword">
+                                        <i class="far fa-eye"></i>
+                                    </span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="rememberMe">
+                                        <label class="form-check-label" for="rememberMe">Remember me</label>
+                                    </div>
+                                    <a href="#" class="text-primary">Forgot password?</a>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Sign In</button>
+                            </form>
+                        </div>
+
+                        <!-- Phone Login Form -->
+                        <div id="phone-login-form" style="display: none;">
+                            <form id="phoneLoginForm">
+                                <div class="mb-3">
+                                    <input type="tel" class="form-control" id="loginPhoneNumber"
+                                        placeholder="Phone Number" required>
+                                </div>
+                                <button type="button" id="sendLoginVerificationBtn"
+                                    class="btn btn-primary w-100 mb-3">Send Verification Code</button>
+
+                                <div id="loginVerificationSection" style="display: none;">
+                                    <div class="verification-code">
+                                        <input type="text" maxlength="1" class="form-control" id="loginDigit1">
+                                        <input type="text" maxlength="1" class="form-control" id="loginDigit2">
+                                        <input type="text" maxlength="1" class="form-control" id="loginDigit3">
+                                        <input type="text" maxlength="1" class="form-control" id="loginDigit4">
+                                        <input type="text" maxlength="1" class="form-control" id="loginDigit5">
+                                        <input type="text" maxlength="1" class="form-control" id="loginDigit6">
+                                    </div>
+                                    <div class="resend-code">
+                                        Didn't receive code? <a id="resendLoginCode">Resend</a>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Verify and Login</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Facebook Login -->
+                        <div id="facebook-login-form" style="display: none; text-align: center;">
+                            <p class="mb-4">Login with your Facebook account</p>
+                            <button class="btn btn-primary" id="facebookLoginBtn">
+                                <i class="fab fa-facebook-f me-2"></i> Continue with Facebook
+                            </button>
+                        </div>
+
+                        <div class="auth-footer">
+                            Don't have an account? <a href="#" id="switch-to-signup">Sign Up</a>
+                        </div>
+                    </div>
+
+                    <!-- Signed In State -->
+                    <div id="signed-in-state" style="display: none; text-align: center;">
+                        <div class="mb-4">
+                            <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--primary-color);"></i>
+                        </div>
+                        <h3 class="mb-3">Welcome, <span id="displayUserName"></span>!</h3>
+                        <p class="mb-4">You're successfully signed in to your wellness journey.</p>
+                        <button id="sign-out-btn"  class="btn btn-primary w-100 mb-3">Continue to Dashboard
+                        </button>
+                        <button id="sign-out-btn-secondary" class="btn btn-outline-primary w-100">Sign Out</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Footer -->
+    <div id="footer"></div>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Facebook SDK -->
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <script>
+        // Initialize Facebook SDK
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: 'YOUR_FACEBOOK_APP_ID', // Replace with your Facebook App ID
+                cookie: true,
+                xfbml: true,
+                version: 'v12.0'
+            });
+        };
+
+        // Load header and footer
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+
+        // Toggle password visibility
+        function togglePasswordVisibility(inputId, toggleId) {
+            const passwordInput = $(inputId);
+            const toggleIcon = $(toggleId + ' i');
+
+            $(toggleId).click(function () {
+                if (passwordInput.attr('type') === 'password') {
+                    passwordInput.attr('type', 'text');
+                    toggleIcon.removeClass('fa-eye').addClass('fa-eye-slash');
+                } else {
+                    passwordInput.attr('type', 'password');
+                    toggleIcon.removeClass('fa-eye-slash').addClass('fa-eye');
+                }
+            });
+        }
+
+        // Initialize password toggles
+        togglePasswordVisibility('#password', '#togglePassword');
+        togglePasswordVisibility('#confirmPassword', '#toggleConfirmPassword');
+        togglePasswordVisibility('#loginPassword', '#toggleLoginPassword');
+
+        // Switch between sign up and sign in forms
+        $('#signup-tab').click(function () {
+            $(this).addClass('active');
+            $('#signin-tab').removeClass('active');
+            $('#signup-form').show();
+            $('#signin-form').hide();
+        });
+
+        $('#signin-tab').click(function () {
+            $(this).addClass('active');
+            $('#signup-tab').removeClass('active');
+            $('#signin-form').show();
+            $('#signup-form').hide();
+        });
+
+        $('#switch-to-signin').click(function (e) {
+            e.preventDefault();
+            $('#signin-tab').click();
+        });
+
+        $('#switch-to-signup').click(function (e) {
+            e.preventDefault();
+            $('#signup-tab').click();
+        });
+
+        // Switch between login options
+        $('.login-option-btn').click(function () {
+            const option = $(this).data('option');
+
+            // Remove active class from all buttons
+            $('.login-option-btn').removeClass('active');
+            // Add active class to clicked button
+            $(this).addClass('active');
+
+            // Hide all forms
+            $('#email-register-form, #phone-register-form, #facebook-register-form, #email-login-form, #phone-login-form, #facebook-login-form').hide();
+
+            // Show the selected form based on whether we're in signup or signin
+            if ($('#signup-form').is(':visible')) {
+                $(`#${option}-register-form`).show();
+            } else {
+                $(`#${option}-login-form`).show();
+            }
+        });
+
+        // Phone verification for registration
+        $('#sendVerificationBtn').click(function () {
+            const phoneNumber = $('#phoneNumber').val();
+
+            if (!phoneNumber) {
+                alert('Please enter a valid phone number');
+                return;
+            }
+
+            // In a real implementation, you would send this to your server
+            // which would then send an SMS with a verification code
+            // For this demo, we'll generate a random code
+            const verificationCode = Math.floor(100000 + Math.random() * 900000);
+            localStorage.setItem('verificationCode', verificationCode);
+            localStorage.setItem('phoneNumber', phoneNumber);
+
+            // Show verification section
+            $('#verificationSection').show();
+            $(this).hide();
+
+            // Focus first digit input
+            $('#digit1').focus();
+
+            // Simulate sending SMS (in production this would be a server-side operation)
+            alert(`Verification code sent to ${phoneNumber}: ${verificationCode}`);
+        });
+
+        // Auto-tab between verification code inputs
+        $('.verification-code input').keyup(function () {
+            if ($(this).val().length === 1) {
+                $(this).next('input').focus();
+            }
+        });
+
+        // Resend verification code
+        $('#resendCode').click(function () {
+            const phoneNumber = localStorage.getItem('phoneNumber');
+            const newVerificationCode = Math.floor(100000 + Math.random() * 900000);
+            localStorage.setItem('verificationCode', newVerificationCode);
+
+            // Simulate resending SMS
+            alert(`New verification code sent to ${phoneNumber}: ${newVerificationCode}`);
+        });
+
+        // Phone registration form submission
+        $('#phoneRegisterForm').submit(function (e) {
+            e.preventDefault();
+
+            if (!$('#phoneTerms').is(':checked')) {
+                alert('You must agree to the terms and conditions');
+                return;
+            }
+
+            // Get entered code
+            const enteredCode = $('#digit1').val() + $('#digit2').val() + $('#digit3').val() +
+                $('#digit4').val() + $('#digit5').val() + $('#digit6').val();
+
+            // Get stored code
+            const storedCode = localStorage.getItem('verificationCode');
+
+            if (enteredCode === storedCode) {
+                // Verification successful
+                const fullName = $('#phoneFullName').val();
+                const phoneNumber = localStorage.getItem('phoneNumber');
+
+                // Store user data
+                localStorage.setItem('userName', fullName);
+                localStorage.setItem('userPhone', phoneNumber);
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('authMethod', 'phone');
+
+                // Show signed in state
+                $('#signup-form').hide();
+                $('#signin-form').hide();
+                $('#signed-in-state').show();
+                $('#displayUserName').text(fullName);
+
+                // Clear verification data
+                localStorage.removeItem('verificationCode');
+                localStorage.removeItem('phoneNumber');
+            } else {
+                alert('Invalid verification code. Please try again.');
+            }
+        });
+
+        // Phone verification for login
+        $('#sendLoginVerificationBtn').click(function () {
+            const phoneNumber = $('#loginPhoneNumber').val();
+
+            if (!phoneNumber) {
+                alert('Please enter a valid phone number');
+                return;
+            }
+
+            // In a real implementation, you would check if this phone number is registered
+            // For this demo, we'll just send a code
+            const verificationCode = Math.floor(100000 + Math.random() * 900000);
+            localStorage.setItem('loginVerificationCode', verificationCode);
+            localStorage.setItem('loginPhoneNumber', phoneNumber);
+
+            // Show verification section
+            $('#loginVerificationSection').show();
+            $(this).hide();
+
+            // Focus first digit input
+            $('#loginDigit1').focus();
+
+            // Simulate sending SMS
+            alert(`Verification code sent to ${phoneNumber}: ${verificationCode}`);
+        });
+
+        // Auto-tab between login verification code inputs
+        $('.verification-code input').keyup(function () {
+            if ($(this).val().length === 1) {
+                $(this).next('input').focus();
+            }
+        });
+
+        // Resend login verification code
+        $('#resendLoginCode').click(function () {
+            const phoneNumber = localStorage.getItem('loginPhoneNumber');
+            const newVerificationCode = Math.floor(100000 + Math.random() * 900000);
+            localStorage.setItem('loginVerificationCode', newVerificationCode);
+
+            // Simulate resending SMS
+            alert(`New verification code sent to ${phoneNumber}: ${newVerificationCode}`);
+        });
+
+        // Phone login form submission
+        $('#phoneLoginForm').submit(function (e) {
+            e.preventDefault();
+
+            // Get entered code
+            const enteredCode = $('#loginDigit1').val() + $('#loginDigit2').val() + $('#loginDigit3').val() +
+                $('#loginDigit4').val() + $('#loginDigit5').val() + $('#loginDigit6').val();
+
+            // Get stored code
+            const storedCode = localStorage.getItem('loginVerificationCode');
+
+            if (enteredCode === storedCode) {
+                // Verification successful
+                const phoneNumber = localStorage.getItem('loginPhoneNumber');
+
+                // Store login state
+                localStorage.setItem('userPhone', phoneNumber);
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('authMethod', 'phone');
+
+                // Show signed in state
+                $('#signup-form').hide();
+                $('#signin-form').hide();
+                $('#signed-in-state').show();
+                $('#displayUserName').text(phoneNumber);
+
+                // Clear verification data
+                localStorage.removeItem('loginVerificationCode');
+                localStorage.removeItem('loginPhoneNumber');
+            } else {
+                alert('Invalid verification code. Please try again.');
+            }
+        });
+
+        // Facebook registration
+        $('#facebookRegisterBtn').click(function () {
+            FB.login(function (response) {
+                if (response.authResponse) {
+                    // User logged in with Facebook
+                    FB.api('/me', { fields: 'name,email' }, function (response) {
+                        // Store user data
+                        localStorage.setItem('userName', response.name);
+                        localStorage.setItem('userEmail', response.email);
+                        localStorage.setItem('isLoggedIn', 'true');
+                        localStorage.setItem('authMethod', 'facebook');
+
+                        // Show signed in state
+                        $('#signup-form').hide();
+                        $('#signin-form').hide();
+                        $('#signed-in-state').show();
+                        $('#displayUserName').text(response.name);
+                    });
+                } else {
+                    // User cancelled login or did not fully authorize
+                    alert('Facebook login was not completed.');
+                }
+            }, { scope: 'public_profile,email' });
+        });
+
+        // Facebook login
+        $('#facebookLoginBtn').click(function () {
+            FB.login(function (response) {
+                if (response.authResponse) {
+                    // User logged in with Facebook
+                    FB.api('/me', { fields: 'name,email' }, function (response) {
+                        // In a real app, you would verify this user exists in your database
+                        // For this demo, we'll just store the data
+                        localStorage.setItem('userName', response.name);
+                        localStorage.setItem('userEmail', response.email);
+                        localStorage.setItem('isLoggedIn', 'true');
+                        localStorage.setItem('authMethod', 'facebook');
+
+                        // Show signed in state
+                        $('#signup-form').hide();
+                        $('#signin-form').hide();
+                        $('#signed-in-state').show();
+                        $('#displayUserName').text(response.name);
+                    });
+                } else {
+                    // User cancelled login or did not fully authorize
+                    alert('Facebook login was not completed.');
+                }
+            }, { scope: 'public_profile,email' });
+        });
+
+        // Email registration form submission
+        $('#emailRegisterForm').submit(function (e) {
+            e.preventDefault();
+
+            // Simple validation
+            if ($('#password').val() !== $('#confirmPassword').val()) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            if (!$('#terms').is(':checked')) {
+                alert('You must agree to the terms and conditions');
+                return;
+            }
+
+            // Store user data
+            localStorage.setItem('userEmail', $('#email').val());
+            localStorage.setItem('userName', $('#fullName').val());
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('authMethod', 'email');
+
+            // Show signed in state
+            $('#signup-form').hide();
+            $('#signin-form').hide();
+            $('#signed-in-state').show();
+            $('#displayUserName').text($('#fullName').val());
+        });
+
+        // Email login form submission
+        $('#emailLoginForm').submit(function (e) {
+            e.preventDefault();
+
+            // In a real implementation, you would validate credentials with your server
+            // For this example, we'll just show the signed in state
+            $('#signup-form').hide();
+            $('#signin-form').hide();
+            $('#signed-in-state').show();
+
+            // Store login state
+            localStorage.setItem('userEmail', $('#loginEmail').val());
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('authMethod', 'email');
+            $('#displayUserName').text($('#loginEmail').val().split('@')[0]);
+        });
+
+        // Continue to Dashboard button
+        $('#sign-out-btn').click(function () {
+            // Redirect to dashboard or homepage
+            window.location.href = "homepage.html"
+        });
+
+        // Sign out button
+        $('#sign-out-btn-secondary').click(function () {
+            // Clear user data from localStorage
+            localStorage.removeItem('userEmail');
+            localStorage.removeItem('userName');
+            localStorage.removeItem('userPhone');
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('authMethod');
+
+            // If signed in with Facebook, log out from Facebook too
+            if (localStorage.getItem('authMethod') === 'facebook') {
+                FB.logout(function (response) {
+                    console.log('Logged out from Facebook');
+                });
+            }
+
+            // Show sign in form
+            $('#signed-in-state').hide();
+            $('#signin-form').show();
+            $('#signin-tab').addClass('active');
+            $('#signup-tab').removeClass('active');
+
+            // Show email login by default
+            $('.login-option-btn').removeClass('active');
+            $('.login-option-btn[data-option="email"]').addClass('active');
+            $('#email-login-form').show();
+            $('#phone-login-form, #facebook-login-form').hide();
+        });
+
+        // Check if user is already logged in
+        $(document).ready(function () {
+            if (localStorage.getItem('isLoggedIn') === 'true') {
+                $('#signup-form').hide();
+                $('#signin-form').hide();
+                $('#signed-in-state').show();
+                $('#signup-tab').removeClass('active');
+                $('#signin-tab').addClass('active');
+
+                // Display user name if available
+                const userName = localStorage.getItem('userName') ||
+                    localStorage.getItem('userEmail')?.split('@')[0] ||
+                    localStorage.getItem('userPhone') ||
+                    'User';
+                $('#displayUserName').text(userName);
+            }
+
+            // Initialize login options
+            $('.login-option-btn[data-option="email"]').click();
+        });
+    </script>
+</body>
+
+</html>
